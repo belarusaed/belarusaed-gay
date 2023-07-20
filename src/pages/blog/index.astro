@@ -27,13 +27,13 @@ const posts = (await getCollection('blog')).sort((a, b) => a.data.date.valueOf()
             class:list={[
               'relative block flex flex-col justify-end bg-cover bg-center p-2 before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:bg-black before:bg-opacity-50',
               {
-                'h-full': posts.length === 1,
+                'h-screen': posts.length === 1,
                 'h-[50svh]': posts.length === 2,
                 'h-[40svh]': posts.length > 2,
                 'sm:col-span-2': postIndex + 1 === chunk.length,
-                'sm:h-[50svh]': posts.length <= 4,
+                'sm:h-[50svh]': posts.length > 1 && posts.length <= 4,
                 'sm:h-[40svh]': posts.length > 4,
-                'lg:h-[50svh]': posts.length <= 6,
+                'lg:h-[50svh]': posts.length > 1 && posts.length <= 6,
                 'lg:h-[40svh]': posts.length > 6
               }
             ]}
