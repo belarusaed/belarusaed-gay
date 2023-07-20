@@ -6,6 +6,9 @@ module.exports = {
   // darkMode: 'class',
   theme: {
     extend: {
+      height: {
+        screen: '100dvh'
+      },
       backgroundImage: {
         gay: 'url("/gay.jpg")',
         'gradient-belarus':

@@ -29,11 +29,11 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.date.valueOf()
               'relative flex flex-col justify-end bg-cover bg-center p-2 before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:bg-black before:bg-opacity-50 before:backdrop-blur',
               {
                 'h-screen': posts.length === 1,
-                'h-[50svh] md:h-screen': posts.length === 2,
-                'h-[40svh] md:h-[50svh]': posts.length >= 3 && posts.length <= 4,
+                'h-[50dvh] md:h-screen': posts.length === 2,
+                'h-[40dvh] md:h-[50dvh]': posts.length >= 3 && posts.length <= 4,
                 'lg:h-screen': posts.length === 3,
-                'h-[40svh]': posts.length >= 5,
-                'lg:h-[50svh]': posts.length >= 5 && posts.length <= 6,
+                'h-[40dvh]': posts.length >= 5,
+                'lg:h-[50dvh]': posts.length >= 5 && posts.length <= 6,
                 'md:col-span-2 lg:col-span-1': chunk.length === 3 && postIndex === chunk.length - 1,
                 'md:col-span-2': chunk.length === 5 && postIndex === chunk.length - 1
               }
