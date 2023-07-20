@@ -4,7 +4,7 @@ import Layout from '@/layouts/Layout.astro';
 import FormattedDate from '@/components/FormattedDate.astro';
 import _ from 'lodash';
 
-const posts = (await getCollection('blog')).sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
+const posts = (await getCollection('blog')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <Layout title="@belarusaed's blog">
