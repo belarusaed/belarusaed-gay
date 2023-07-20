@@ -12,8 +12,9 @@ const posts = (await getCollection('blog')).sort((a, b) => a.data.date.valueOf()
     _.chunk(posts, 6).map(chunk => (
       <div
         class:list={[
-          'grid w-full text-zinc-100 sm:grid-cols-2',
+          'grid w-full text-zinc-100',
           {
+            'md:grid-cols-2': chunk.length !== 1,
             'lg:grid-cols-2': chunk.length === 2,
             'lg:grid-cols-3': chunk.length === 3,
             'lg:grid-cols-2 grid-rows-2': chunk.length === 4,
@@ -28,13 +29,13 @@ const posts = (await getCollection('blog')).sort((a, b) => a.data.date.valueOf()
               'relative block flex flex-col justify-end bg-cover bg-center p-2 before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:bg-black before:bg-opacity-50',
               {
                 'h-screen': posts.length === 1,
-                'h-[50svh]': posts.length === 2,
-                'h-[40svh]': posts.length > 2,
-                'sm:col-span-2': postIndex + 1 === chunk.length,
-                'sm:h-[50svh]': posts.length > 1 && posts.length <= 4,
-                'sm:h-[40svh]': posts.length > 4,
-                'lg:h-[50svh]': posts.length > 1 && posts.length <= 6,
-                'lg:h-[40svh]': posts.length > 6
+                'h-[50svh] md:h-screen': posts.length === 2,
+                'h-[40svh] md:h-[50svh]': posts.length >= 3 && posts.length <= 4,
+                'lg:h-screen': posts.length === 3,
+                'h-[40svh]': posts.length >= 5,
+                'lg:h-[50svh]': posts.length >= 5 && posts.length <= 6,
+                'md:col-span-2 lg:col-span-1': chunk.length === 3 && postIndex === chunk.length - 1,
+                'md:col-span-2': chunk.length === 5 && postIndex === chunk.length - 1
               }
             ]}
             style={`background-image: url(${post.data.heroImage})`}
