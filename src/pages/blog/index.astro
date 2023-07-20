@@ -1,0 +1,65 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import FormattedDate from '@/components/FormattedDate.astro';
+import _ from 'lodash';
+
+const posts = (await getCollection('blog')).sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
+---
+
+<Layout title="@belarusaed's blog">
+  {
+    _.chunk(posts, 6).map(chunk => (
+      <div
+        class:list={[
+          'grid w-full text-zinc-100 sm:grid-cols-2',
+          {
+            'lg:grid-cols-2': chunk.length === 2,
+            'lg:grid-cols-3': chunk.length === 3,
+            'lg:grid-cols-2 grid-rows-2': chunk.length === 4,
+            'lg:grid-cols-3 grid-rows-2': chunk.length >= 5
+          }
+        ]}
+      >
+        {chunk.map((post, postIndex) => (
+          <a
+            href={`/blog/${post.slug}/`}
+            class:list={[
+              'relative block flex flex-col justify-end bg-cover bg-center p-2 before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:bg-black before:bg-opacity-50',
+              {
+                'h-full': posts.length === 1,
+                'h-[50svh]': posts.length === 2,
+                'h-[40svh]': posts.length > 2,
+                'sm:col-span-2': postIndex + 1 === chunk.length,
+                'sm:h-[50svh]': posts.length <= 4,
+                'sm:h-[40svh]': posts.length > 4,
+                'lg:h-[50svh]': posts.length <= 6,
+                'lg:h-[40svh]': posts.length > 6
+              }
+            ]}
+            style={`background-image: url(${post.data.heroImage})`}
+          >
+            <div class="relative flex flex-col gap-2">
+              <h2 class="lg:text-2xl xl:text-4xl">{post.data.title}</h2>
+              <FormattedDate date={post.data.date} className="xl:text-md text-sm" />
+            </div>
+          </a>
+        ))}
+      </div>
+    ))
+  }
+  <!--<main>-->
+  <!--  <section>-->
+  <!--    <ul>-->
+  <!--      {-->
+  <!--        posts.map(post => (-->
+  <!--          <li>-->
+  <!--            <FormattedDate date={post.data.date} />-->
+  <!--            <a href={`/blog/${post.slug}/`}>{post.data.title}</a>-->
+  <!--          </li>-->
+  <!--        ))-->
+  <!--      }-->
+  <!--    </ul>-->
+  <!--  </section>-->
+  <!--</main>-->
+</Layout>

@@ -1,0 +1,38 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import LinksBlock from '@/components/LinksBlock.astro';
+---
+
+<Layout>
+  <div
+    class="flex h-screen items-center justify-center bg-gay bg-cover bg-center bg-no-repeat text-zinc-100 before:fixed before:bottom-0 before:left-0 before:right-0 before:top-0 before:bg-black before:bg-opacity-50"
+  >
+    <div class="relative flex flex-col items-center justify-center gap-4">
+      <div class="flex flex-col items-center gap-1 md:flex-row md:gap-6">
+        <div class="flex h-28 w-28 items-center justify-center">
+          <img src="/avatar.jpg" alt="avatar" class="relative z-10 aspect-square h-24 rounded-full object-cover" />
+          <div class="absolute z-0 h-28 w-28 rounded-full bg-gradient-belarus"></div>
+        </div>
+        <div class="flex flex-col justify-center gap-1">
+          <h1 class="text-center text-4xl font-light md:text-left md:text-6xl">@belarusaed</h1>
+          <p class="text-center md:text-left">Перакладаю анімэ з перапынкамі на ежу</p>
+        </div>
+      </div>
+      <LinksBlock
+        className="text-lg"
+        links={[
+          { href: 'https://github.com/belarusaed', text: 'GitHub' },
+          { href: 'https://twitter.com/belarusaed', text: 'Twitter' },
+          { href: 'https://belarusaedTheGreat.t.me', text: 'Telegram' }
+        ]}
+      />
+      <LinksBlock
+        className="text-lg md:text-2xl"
+        links={[
+          { href: 'https://belarusaed.t.me', text: 'Contact me' },
+          { href: '/blog', text: 'Blog' }
+        ]}
+      />
+    </div>
+  </div>
+</Layout>

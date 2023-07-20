@@ -1,0 +1,29 @@
+{
+  "name": "belarusaed-gay",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "format": "prettier --write --plugin-search-dir=. **/*.{cjs,mjs,ts,tsx,md,json,astro} --no-error-on-unmatched-pattern"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^0.19.7",
+    "@astrojs/rss": "^2.4.3",
+    "@astrojs/sitemap": "^2.0.0",
+    "@astrojs/tailwind": "^4.0.0",
+    "astro": "^2.8.4",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.9",
+    "@types/lodash": "^4.14.195",
+    "prettier": "^2.8.8",
+    "prettier-plugin-astro": "^0.9.1",
+    "prettier-plugin-tailwindcss": "^0.4.1",
+    "tailwindcss": "^3.3.3"
+  }
+}

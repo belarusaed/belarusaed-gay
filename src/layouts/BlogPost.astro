@@ -1,0 +1,23 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Layout from './Layout.astro';
+import FormattedDate from '@/components/FormattedDate.astro';
+
+type Props = CollectionEntry<'blog'>['data'];
+const { title, description, date, heroImage } = Astro.props;
+---
+
+<Layout title={title} description={description} image={heroImage}>
+  <div
+    class="relative flex aspect-video max-h-[85svh] w-full items-center justify-center gap-1 bg-cover bg-center text-white before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:bg-black before:bg-opacity-50"
+    style={`background-image: url(${heroImage})`}
+  >
+    <div class="relative w-full sm:w-9/12">
+      <h1 class="text-4xl text-white sm:text-6xl lg:text-8xl">{title}</h1>
+      <FormattedDate date={date} className="text-sm sm:text-base lg:text-xl" />
+    </div>
+  </div>
+  <article class="prose prose-zinc mx-auto mt-4 dark:prose-invert xl:prose-xl">
+    <slot />
+  </article>
+</Layout>
