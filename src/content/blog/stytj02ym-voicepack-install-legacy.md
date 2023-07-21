@@ -2,7 +2,7 @@
 title: 'Беларуская агучка STYTJ02YM'
 description: 'Інструкцыя па ўсталёўцы агучкі на Xiaomi Mi Robot Vacuum-Mop P (STYTJ02YM)'
 date: '2021-08-02'
-heroImage: '/blog/stytj02ym-voicepack-install-legacy/hero.jpg'
+heroImage: '/blog/stytj02ym-voicepack-install-legacy/hero.webp'
 ---
 
 **Увага! За ўсе дзеянні несяце адказнасць вы і толькі вы. Ні аўтар інструкцыі, ні той, хто агучваў, ні хто заўгодна яшчэ
@@ -96,7 +96,7 @@ exec /bin/sh "$@"
 для таго, яго спачатку трэба падлучыць. Для гэтага, здымаем з пыласоса шчотку, адкручваем крышку, што трымаецца на 4
 вінціках, вынімаем акумулятар і адключаем яго. Пад ім будзе порт MicroUSB:
 
-![Акумулятар і USB па ім](/blog/stytj02ym-voicepack-install-legacy/battery.jpg)
+![Акумулятар і USB па ім](/blog/stytj02ym-voicepack-install-legacy/battery.webp)
 
 Цяпер, калі акумулятар адключаны, пыласос будзе сілкавацца ад USB, што нам зручна, бо яго давядзецца выключыць мноства
 разоў. Перад падлучэннем, выканаем наступную каманду:
