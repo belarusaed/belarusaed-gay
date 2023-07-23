@@ -10,7 +10,7 @@ module.exports = {
         screen: '100dvh'
       },
       backgroundImage: {
-        gay: 'url("/gay.webp")',
+        default: 'url("/bg.webp")',
         'gradient-belarus':
           'linear-gradient(to top, rgba(255,255,255,1), calc(100%/3), rgba(204,0,0,1) calc(100%/3), rgba(204,0,0,1) calc(100%/3*2), rgba(255,255,255,1) calc(100%/3*2))'
       },
