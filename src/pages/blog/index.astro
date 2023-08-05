@@ -27,6 +27,7 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.date.valueOf()
             href={`/blog/${post.slug}/`}
             class:list={[
               'relative flex flex-col justify-end bg-cover bg-center p-2 before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:bg-black before:bg-opacity-50 before:backdrop-blur',
+              'focus-visible:outline-0 [&_h2]:focus-visible:rounded-sm [&_h2]:focus-visible:outline [&_h2]:focus-visible:outline-1 [&_h2]:focus-visible:outline-offset-4 [&_h2]:focus-visible:outline-blue-600',
               {
                 'h-screen': posts.length === 1,
                 'h-[50dvh] md:h-screen': posts.length === 2,
