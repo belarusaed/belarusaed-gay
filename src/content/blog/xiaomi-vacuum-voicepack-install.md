@@ -16,7 +16,7 @@ heroImage: '/blog/xiaomi-vacuum-voicepack-install/hero.webp'
 | Назва пыласоса                                                                                                     | Пакет агучкі           |
 | ------------------------------------------------------------------------------------------------------------------ | ---------------------- |
 | ✅ Xiaomi Mi Robot Vacuum-Mop P (STYTJ02YM)                                                                        | [STYTJ02YM-bel.zip][0] |
-| ⚠️ Xiaomi Robot Vacuum-Mop S10 <br/> ⚠️ Xiaomi Robot Vacuum-Mop 2S <br/>✅ Mijia Sweeping Vacuum Cleaner 3C B106CN | [ijai-2s_be.zip][1]    |
+| ✅ Xiaomi Robot Vacuum-Mop S10 <br/> ⚠️ Xiaomi Robot Vacuum-Mop 2S <br/>✅ Mijia Sweeping Vacuum Cleaner 3C B106CN | [ijai-2s_be.zip][1]    |
 
 Умоўныя абазначэнні:
 
