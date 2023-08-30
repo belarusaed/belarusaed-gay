@@ -14,7 +14,7 @@ const { links = [], className } = Astro.props;
 <div class:list={['text flex flex-col md:flex-row items-center w-full flex-wrap justify-evenly gap-4', className]}>
   {
     links.map(({ href, text }) => (
-      <a class='font-medium text-white hover:underline' href={href}>
+      <a class="font-medium text-white hover:underline" href={href}>
         {text}
       </a>
     ))
