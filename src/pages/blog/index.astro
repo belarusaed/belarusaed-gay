@@ -23,45 +23,36 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.date.valueOf()
         ]}
       >
         {chunk.map((post, postIndex) => (
-          <a
-            href={`/blog/${post.slug}/`}
-            class:list={[
-              'relative flex flex-col justify-end bg-cover bg-center p-2 before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:bg-black before:bg-opacity-50 before:backdrop-blur',
-              'focus-visible:outline-0 [&_h2]:focus-visible:rounded-sm [&_h2]:focus-visible:outline [&_h2]:focus-visible:outline-1 [&_h2]:focus-visible:outline-offset-4 [&_h2]:focus-visible:outline-blue-600',
-              {
-                'h-screen': posts.length === 1,
-                'h-[50dvh] md:h-screen': posts.length === 2,
-                'h-[40dvh] md:h-[50dvh]': posts.length >= 3 && posts.length <= 4,
-                'lg:h-screen': posts.length === 3,
-                'h-[40dvh]': posts.length >= 5,
-                'lg:h-[50dvh]': posts.length >= 5 && posts.length <= 6,
-                'md:col-span-2 lg:col-span-1': chunk.length === 3 && postIndex === chunk.length - 1,
-                'md:col-span-2': chunk.length === 5 && postIndex === chunk.length - 1
-              }
-            ]}
+          <div
+            transition:name={`hero-${post.slug}`}
+            class="bg-cover bg-center"
             style={`background-image: url(${post.data.heroImage})`}
           >
-            <div class="relative flex flex-col gap-2">
-              <h2 class="lg:text-2xl xl:text-4xl">{post.data.title}</h2>
-              <FormattedDate date={post.data.date} className="xl:text-md text-sm" />
-            </div>
-          </a>
+            <a
+              href={`/blog/${post.slug}/`}
+              class:list={[
+                'relative flex flex-col justify-end p-2 before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:bg-black before:bg-opacity-50 before:backdrop-blur',
+                'focus-visible:outline-0 [&_h2]:focus-visible:rounded-sm [&_h2]:focus-visible:outline [&_h2]:focus-visible:outline-1 [&_h2]:focus-visible:outline-offset-4 [&_h2]:focus-visible:outline-blue-600',
+                {
+                  'h-screen': posts.length === 1,
+                  'h-[50dvh] md:h-screen': posts.length === 2,
+                  'h-[40dvh] md:h-[50dvh]': posts.length >= 3 && posts.length <= 4,
+                  'lg:h-screen': posts.length === 3,
+                  'h-[40dvh]': posts.length >= 5,
+                  'lg:h-[50dvh]': posts.length >= 5 && posts.length <= 6,
+                  'md:col-span-2 lg:col-span-1': chunk.length === 3 && postIndex === chunk.length - 1,
+                  'md:col-span-2': chunk.length === 5 && postIndex === chunk.length - 1
+                }
+              ]}
+            >
+              <div class="relative flex flex-col gap-2">
+                <h2 class="lg:text-2xl xl:text-4xl">{post.data.title}</h2>
+                <FormattedDate date={post.data.date} className="xl:text-md text-sm" />
+              </div>
+            </a>
+          </div>
         ))}
       </div>
     ))
   }
-  <!--<main>-->
-  <!--  <section>-->
-  <!--    <ul>-->
-  <!--      {-->
-  <!--        posts.map(post => (-->
-  <!--          <li>-->
-  <!--            <FormattedDate date={post.data.date} />-->
-  <!--            <a href={`/blog/${post.slug}/`}>{post.data.title}</a>-->
-  <!--          </li>-->
-  <!--        ))-->
-  <!--      }-->
-  <!--    </ul>-->
-  <!--  </section>-->
-  <!--</main>-->
 </Layout>

@@ -15,11 +15,9 @@ module.exports = {
           'linear-gradient(to top, rgba(255,255,255,1), calc(100%/3), rgba(204,0,0,1) calc(100%/3), rgba(204,0,0,1) calc(100%/3*2), rgba(255,255,255,1) calc(100%/3*2))'
       },
       fontFamily: {
-        'sans': ['Noto Sans', ...defaultTheme.fontFamily.sans]
+        sans: ['Noto Sans', ...defaultTheme.fontFamily.sans]
       }
     }
   },
-  plugins: [
-    require('@tailwindcss/typography')
-  ]
+  plugins: [require('@tailwindcss/typography')]
 };

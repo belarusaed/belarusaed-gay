@@ -1,23 +1,39 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { slide } from 'astro:transitions';
 import Layout from './Layout.astro';
 import FormattedDate from '@/components/FormattedDate.astro';
 
-type Props = CollectionEntry<'blog'>['data'];
-const { title, description, date, heroImage } = Astro.props;
+type Props = CollectionEntry<'blog'>['data'] & { slug: string };
+const { title, description, date, heroImage, slug } = Astro.props as Props;
 ---
 
 <Layout title={title} description={description} image={heroImage}>
-  <div
-    class="relative flex aspect-video max-h-[85dvh] w-full items-center justify-center gap-1 bg-cover bg-center text-white before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:bg-black before:bg-opacity-50 before:backdrop-blur"
-    style={`background-image: url(${heroImage})`}
-  >
-    <div class="relative flex w-full flex-col gap-4 sm:w-9/12">
-      <h1 class="text-3xl text-white sm:text-4xl lg:text-6xl">{title}</h1>
-      <FormattedDate date={date} className="text-sm sm:text-base lg:text-xl" />
+  <div>
+    <div
+      transition:name={`hero-${slug}`}
+      class="relative flex aspect-video max-h-[85dvh] w-full items-center justify-center gap-1 bg-cover bg-center text-zinc-100 before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:bg-black before:bg-opacity-50 before:backdrop-blur"
+      style={`background-image: url(${heroImage})`}
+    >
+      <div
+        transition:animate={slide({ duration: 400 })}
+        class="relative flex w-full flex-col items-start gap-4 sm:w-9/12"
+      >
+        <a
+          href="/blog/"
+          class="rounded-lg border-[1px] border-zinc-200 px-2.5 py-1.5 text-sm uppercase text-zinc-200 hover:border-white hover:text-white"
+        >
+          ← Вярнуцца
+        </a>
+        <h1 class="text-3xl sm:text-4xl lg:text-6xl">{title}</h1>
+        <FormattedDate date={date} className="text-sm sm:text-base lg:text-xl" />
+      </div>
     </div>
+    <article
+      transition:animate={slide({ duration: 800 })}
+      class="prose prose-sm prose-zinc mx-auto mt-4 pb-8 dark:prose-invert xl:prose-xl"
+    >
+      <slot />
+    </article>
   </div>
-  <article class="prose prose-sm prose-zinc mx-auto mt-4 pb-8 dark:prose-invert xl:prose-xl">
-    <slot />
-  </article>
 </Layout>

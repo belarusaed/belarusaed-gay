@@ -1,20 +1,25 @@
 ---
-interface Props {
-  title: string;
-  description: string;
-  image: string;
-}
+import { ViewTransitions } from 'astro:transitions';
+
+type Props = {
+  title?: string;
+  description?: string;
+  image?: string;
+  children?: any;
+};
 
 const {
   title = '@belarusaed',
   description = 'This site belongs to me. If you find it, please return it to the owner.',
   image = '/avatar.webp'
-} = Astro.props;
+} = Astro.props as Props;
 ---
 
 <!DOCTYPE html>
 <html lang="be-by" class="overscroll-auto bg-zinc-100 dark:bg-zinc-900">
   <head>
+    <ViewTransitions fallback="none" />
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
