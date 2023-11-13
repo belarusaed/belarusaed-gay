@@ -3,6 +3,6 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://belarusaed.gay',
+  site: 'https://bielarusajed.gay',
   integrations: [tailwind()]
 });
